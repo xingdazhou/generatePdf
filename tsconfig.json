@@ -1,31 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext", //指定ECMAScript目标版本
-    "useDefineForClassFields": true, //class声明使用define 
-    "module": "ESNext", //导入导出模块规范，如es6和commom.js
-    "moduleResolution": "Node", //模块解析策略。默认使用node的模块解析策略
-    "strict": true, //启用所有严格类型检查选项
-    "jsx": "preserve", //preserve模式,在preserve模式下生成代码中会保留JSX以供后续的转换操作使用
-    "resolveJsonModule": true, //允许导入扩展名为“.json”的模块
-    "isolatedModules": true, //将每个文件作为单独的模块（与“ts.transpileModule”类似）。
-    "esModuleInterop": true, //允许module.exports=xxx 导出，由import from 导入.因为很多老的js库使用了commonjs的导出方式，并且没有导出default属性
-    "lib": [
-      "ESNext",
-      "DOM"
-    ], //TS需要引用的库
-    "skipLibCheck": true, //忽略所有的声明文件（ *.d.ts）的类型检查
-    "noEmit": true // 不输出文件,即编译后不会生成任何js文件
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
+    "typeRoots": [
+      "node_modules/@types", // 默认值
+      "src/types"
+   ],
+    "target": "esnext",
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "baseUrl": "./",
+    "paths":{
+      "@": ["src"],
+      "@/*": ["src/*"],
     }
-  ],
-  "types":["node"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
